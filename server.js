@@ -18,10 +18,13 @@ app.use((req,res,next) =>  {
 	next();
 
 });
+/***important**/
+// app.use((req,res,next) => {
+// 	res.render('maintainance.hbs');  //hrlp.html now also running because the middleware cannot execute as help.html middleware is above this function
+// });
 
-app.use((req,res,next) => {
-	res.render('maintainance.hbs');  //hrlp.html now also running because the middleware cannot execute as help.html middleware is above this function
-});
+
+
 //end middleware
 
 //helper
@@ -66,6 +69,13 @@ app.get('/about' , (req,res) => {
 	});
 });
 
+app.get('/portfolio' ,(req,res) => {
+
+	res.render('portfolio.hbs',{
+		pageTitle:'portfolio Page'
+	});
+});
+
 app.get('/bad' ,(req,res) => {
 
 	res.send({
@@ -74,5 +84,5 @@ app.get('/bad' ,(req,res) => {
 });
 
 app.listen(port , () => {
-	console.log(`server ${3000} is start now`);
+	console.log(`server ${port} is start now`);
 });
