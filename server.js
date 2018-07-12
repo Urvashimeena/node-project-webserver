@@ -3,7 +3,7 @@ const hbs = require('hbs');
 const fs = require('fs');
 
 const app = express();
-
+const port = process.env.PORT || 3000;
 app.set('view engin' , 'hbs'); //for rendering views file 
 
 //middleware
@@ -73,6 +73,6 @@ app.get('/bad' ,(req,res) => {
 	});
 });
 
-app.listen(3000 , () => {
-	console.log('server 3000 is start now');
+app.listen(port , () => {
+	console.log(`server ${3000} is start now`);
 });
